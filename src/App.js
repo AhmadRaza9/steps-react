@@ -1,11 +1,26 @@
 import { useState } from "react";
-const messages = [
+const messagesReact = [
   "Learn React ⚛️",
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
 
+const messagesPHP = [
+  "Learn PHP ✨",
+  "Apply for jobs 💼",
+  "Invest your new income 🤑",
+];
+
 export default function App() {
+  return (
+    <div>
+      <Steps messages={messagesReact} />
+      <Steps messages={messagesPHP} />
+    </div>
+  );
+}
+
+function Steps({ messages }) {
   const [step, setStep] = useState(1);
   const [IsOpen, setIsOpen] = useState(true);
 
@@ -17,7 +32,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="container">
       <button className="close" onClick={() => setIsOpen((is) => !is)}>
         {IsOpen ? "close" : "open"}
       </button>
@@ -47,6 +62,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
